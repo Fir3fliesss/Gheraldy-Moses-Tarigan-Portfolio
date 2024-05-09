@@ -370,11 +370,11 @@ header {
   bottom: -4px;
   left: -5px;
 }
+.skill-chart li .chart-percentage.forty-five-percent {
+width: 45%; 
+}
 .skill-chart li .chart-percentage.seventy-percent {
 width: 70%; 
-}
-.skill-chart li .chart-percentage.seventy-five-percent {
-width: 75%; 
 }
 .skill-chart li .chart-percentage.eighty-percent {
 width: 80%; 
@@ -382,8 +382,8 @@ width: 80%;
 .skill-chart li .chart-percentage.ninety-percent {
 width: 90%; 
 }
-.skill-chart li .chart-percentage.ninety-five-percent {
-width: 95%; 
+.skill-chart li .chart-percentage.eighty-five-percent {
+width: 85%; 
 }
 
 
