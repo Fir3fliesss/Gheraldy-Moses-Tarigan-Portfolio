@@ -1,3 +1,33 @@
+function validateForm() {
+  const name = document.getElementById("name").value.toString();
+  const email = document.getElementById("email").value.toString();
+  const message = document.getElementById("message").value.toString();
+
+  // Cek apakah nama tidak kosong
+  if (name.trim() === "") {
+    alert("Please enter your name");
+    return false;
+  }
+
+  // Cek apakah email valid
+  if (!validateEmail(email)) {
+    alert("Please enter a valid email address");
+    return false;
+  }
+
+  // Cek apakah pesan tidak kosong
+  if (message.trim() === "") {
+    alert("Please enter your message");
+    return false;
+  }
+
+}
+
+function validateEmail(email) {
+  // RegEx untuk memeriksa apakah email valid
+  const re = /\S+@\S+\.\S+/;
+  return re.test(String(email).toLowerCase());
+}
 
 //send Email form function
 function sendMail() {
@@ -9,6 +39,10 @@ function sendMail() {
 
   emailjs.send('service_a5re5kp', 'template_hx75jyi', parms).then(function(response) {
     console.log("Email terkirim: ", response);
+    // Mengosongkan nilai-nilai input setelah formulir terkirim
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("message").value = "";
     // Tampilkan alert dengan SweetAlert
     swal("Email Sent!", "Your email has been sent, I will respond soon. Please wait!", "success");
   }, function(error) {
@@ -19,12 +53,12 @@ function sendMail() {
 }
 
 // Tambahkan event listener untuk tombol
-document.getElementById("tes").addEventListener("click", function() {
-  // Panggil fungsi untuk mengirim email ketika tombol ditekan
-  sendMail();
-});
-
 document.getElementById("tes").addEventListener("click", function(event) {
-  event.preventDefault(); // Mencegah perilaku default dari tombol
-  sendMail();
+  // Lakukan validasi sebelum mengirim email
+  if (!validateForm()) {
+    event.preventDefault(); // Mencegah pengiriman formulir jika validasi gagal
+  } else {
+    // Panggil fungsi sendMail() hanya jika validasi berhasil
+    sendMail();
+  }
 });
