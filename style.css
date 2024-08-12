@@ -373,19 +373,19 @@ header {
     left: -5px;
 }
 .skill-chart li .chart-percentage.forty-five-percent {
-    width: 45%;
+    width: 100%;
 }
 .skill-chart li .chart-percentage.seventy-percent {
-    width: 70%;
+    width: 100%;
 }
 .skill-chart li .chart-percentage.eighty-percent {
-    width: 80%;
+    width: 100%;
 }
 .skill-chart li .chart-percentage.ninety-percent {
-    width: 90%;
+    width: 100%;
 }
 .skill-chart li .chart-percentage.eighty-five-percent {
-    width: 85%;
+    width: 100%;
 }
 
 /* slide in */
